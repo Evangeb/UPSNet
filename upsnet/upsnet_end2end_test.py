@@ -231,9 +231,7 @@ def upsnet_test():
                 for k, v in data.items():
                     data[k] = v.pin_memory().to(gpu_id, non_blocking=True) if torch.is_tensor(v) else v
             except StopIteration:
-                data = data.copy()
-                for k, v in data.items():
-                    data[k] = v.pin_memory().to(gpu_id, non_blocking=True) if torch.is_tensor(v) else v
+                break
             batch.append((data, None))
             labels.append(label)
             i_iter += 1
