@@ -62,8 +62,6 @@ def im_detect(output_all, data, im_infos):
     pred_pano_cls_inds_all = []
     cls_inds_all = []
 
-    if len(data) == 1:
-        output_all = [output_all]
 
     output_all = [{k: v.data.cpu().numpy() for k, v in output.items()} for output in output_all]
 
